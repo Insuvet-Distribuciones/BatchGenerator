@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Regular.woff2') format('woff2'),
+         url('/fonts/Poppins-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@layer utilities {
+  .pdf-preview {
+    @apply w-full max-w-[815px] aspect-[8.5/11] border border-gray-300 grid grid-cols-2 grid-rows-3 gap-0 p-2;
+  }
+  .pdf-cell {
+    @apply border border-black p-2;
+  }
+}
