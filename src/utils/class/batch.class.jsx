@@ -10,13 +10,19 @@ class Batch {
             throw new Error("Useful life must be a number smaller than 13 and non-negative");
         }
 
+
         this.itemName = itemName;
         this.itemICAId = itemICAId;
         this.totalWeight = totalWeight;
         this.indications = indications;
         this.ingredients = ingredients; 
         this.usefulLife = usefulLife;
+        
+
+        
     }
+    
+    
 }
 
 export default Batch;

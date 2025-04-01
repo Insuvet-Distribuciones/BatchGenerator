@@ -63,127 +63,119 @@ const styles = StyleSheet.create({
 });
 
 function PDF({ batch }) {
-  const currentDate = new Date().toISOString().slice(0, 10).replace(/-/g, "");
-  
-  const currentDateFormat = new Date()
-    .toISOString()
-    .slice(0, 10)
-    .replace(/-/g, "/");
-
-  function getFutureDate(monthsAhead) {
-    const date = new Date();
-    date.setMonth(date.getMonth() + monthsAhead); // Add X months
-    return `${date.getFullYear()}/${(date.getMonth() + 1)
-      .toString()
-      .padStart(2, "0")}/${date.getDate().toString().padStart(2, "0")}`;
+  // 1. Add null checks and default values
+  if (!batch) {
+    return (
+      <Document>
+        <Page>
+          <Text>Error: No batch data provided</Text>
+        </Page>
+      </Document>
+    );
   }
 
-  const Component = () => {
-    return (
-      <>
-        {/* CONTAINER  */}
-        <View style={styles.container}>
-          <Text style={styles.title}>{batch.itemName}</Text>
-          <View style={styles.colContainer}>
-            <Text style={styles.textSmall}>
-              Peso Neto al empacar {batch.totalWeight}
-            </Text>
-            <Text style={styles.textSmall}>
-              Registro ICA - {batch.itemICAId}
-            </Text>
-          </View>
-          <View style={styles.colContainer}>
-            <Text style={styles.subtitle}>INDICACIONES DEL PRODUCTO</Text>
-            <Text style={styles.textBold}>{batch.indications}</Text>
-          </View>
-          <View style={styles.colContainer}>
-            <Text style={styles.subtitle}>INGREDIENTES</Text>
-            <Text style={styles.textBold}>{batch.ingredients}</Text>
-          </View>
-          <View
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              paddingTop: "1px",
-              paddingBottom: "1px",
-            }}
-          >
-            <View>
-              <Text
-                style={{
-                  fontSize: "10px",
-                  padding: "0px",
-                  lineHeight: "1.35",
-                }}
-              >
-                F.VENC {getFutureDate(batch.usefulLife)}
-              </Text>
-              <Text
-                style={{
-                  fontSize: "10px",
-                  padding: "0px",
-                  lineHeight: "1.35",
-                }}
-              >
-                F.PROD {currentDateFormat}
-              </Text>
-            </View>
-            <View
-              style={{
-                border: "2px",
-                display: "flex",
-                alignSelf: "flex-end",
-              }}
-            >
-              <Text>LOTE {currentDate}</Text>
-            </View>
-          </View>
-          <View
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
-          >
-            <View>
-              <Text style={styles.textSmall}>
-                Fabricado por: Juan Carlos Auza Fernandez
-              </Text>
-              <Text style={styles.textSmall}>
-                Dirección: Calle 2 Sur # 5 A 53 Neiva, Huila
-              </Text>
-              <Text style={styles.textSmall}>
-                E-Mail: alimentosaucol@gmail.com
-              </Text>
-            </View>
-            <Image
-              src={AUCOL}
-              style={{ width: "75px", alignSelf: "flex-end", style: "flex" }}
-            />
-          </View>
-        </View>
-        {/* CONTAINER  */}
-      </>
-    );
+  // 2. Destructure with defaults
+  const {
+    itemName = "Product Name",
+    totalWeight = "N/A",
+    itemICAId = "N/A",
+    indications = "No indications provided",
+    ingredients = "No ingredients listed",
+    usefulLife = 12, // default 12 months
+  } = batch;
+
+  // 3. Date functions (simplified)
+  const currentDate = new Date();
+  const currentDateFormat = currentDate.toLocaleDateString();
+  
+  const getFutureDate = (monthsAhead) => {
+    const date = new Date();
+    date.setMonth(date.getMonth() + monthsAhead);
+    return date.toLocaleDateString();
   };
 
-  const items = new Array(6).fill(null);
+  // 4. Single label component (no nested function)
+  const LabelComponent = ({ index }) => (
+    <View style={styles.container} key={index}>
+      <Text style={styles.title}>{itemName}</Text>
+      
+      <View style={styles.colContainer}>
+        <Text style={styles.textSmall}>Peso Neto al empacar {totalWeight}</Text>
+        <Text style={styles.textSmall}>Registro ICA - {itemICAId}</Text>
+      </View>
+
+      <View style={styles.colContainer}>
+        <Text style={styles.subtitle}>INDICACIONES DEL PRODUCTO</Text>
+        <Text style={styles.textBold}>{indications}</Text>
+      </View>
+
+      <View style={styles.colContainer}>
+        <Text style={styles.subtitle}>INGREDIENTES</Text>
+        <Text style={styles.textBold}>{ingredients}</Text>
+      </View>
+
+      <View style={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        paddingVertical: "1px",
+      }}>
+        <View>
+          <Text style={{ fontSize: 10, lineHeight: 1.35 }}>
+            F.VENC {getFutureDate(usefulLife)}
+          </Text>
+          <Text style={{ fontSize: 10, lineHeight: 1.35 }}>
+            F.PROD {currentDateFormat}
+          </Text>
+        </View>
+        <View style={{ borderWidth: 2, alignSelf: "flex-end" }}>
+          <Text>LOTE {currentDate.getTime()}</Text>
+        </View>
+      </View>
+
+      <View style={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+      }}>
+        <View>
+          <Text style={styles.textSmall}>
+            Fabricado por: Juan Carlos Auza Fernandez
+          </Text>
+          <Text style={styles.textSmall}>
+            Dirección: Calle 2 Sur # 5 A 53 Neiva, Huila
+          </Text>
+          <Text style={styles.textSmall}>
+            E-Mail: alimentosaucol@gmail.com
+          </Text>
+        </View>
+        <Image
+          src={AUCOL}
+          style={{ width: 75, alignSelf: "flex-end" }}
+        />
+      </View>
+    </View>
+  );
+
   return (
-    <Document>
-      <Page size="letter" style={styles.page}>
+    <Document author="ALIMENTOS_AUCOL" pdfVersion="01">
+      <Page size="letter" orientation="portrait" style={styles.page}>
         <View style={styles.section}>
-          {items.map((_, index) => (
-            <Component key={index} />
-          ))}
+        {Array.from({ length: 6 }).map((_, index) => (
+  <LabelComponent key={`label-${index}`} index={index} />
+))}
         </View>
       </Page>
     </Document>
   );
 }
-
 PDF.propTypes = {
   batch: PropTypes.instanceOf(Batch).isRequired,
 };
+
+PDF.defaultProps = {
+  batch: null,
+};
+
 
 export default PDF;
