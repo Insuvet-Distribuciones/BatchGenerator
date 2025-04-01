@@ -1,23 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:wght@100..900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-@font-face {
-    font-family: 'Poppins';
-    src: url('/fonts/Poppins-Regular.woff2') format('woff2'),
-         url('/fonts/Poppins-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@layer utilities {
-  .pdf-preview {
-    @apply w-full max-w-[815px] aspect-[8.5/11] border border-gray-300 grid grid-cols-2 grid-rows-3 gap-0 p-2;
+html {
+  color: #3b3b3b;
+  line-height: 1.5;
+  font-family: "Poppins", sans-serif;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+svg {
+  fill: currentColor;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
   }
-  .pdf-cell {
-    @apply border border-black p-2;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer base {
+  h1 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-medium;
+  }
+  h2 {
+    @apply text-2xl md:text-3xl lg:text-4xl font-medium;
+  }
+  h3 {
+    @apply text-xl md:text-2xl lg:text-3xl font-medium;
+  }
+  h4,
+  h5,
+  h6 {
+    @apply text-base md:text-lg lg:text-2xl font-medium;
+  }
+  p,
+  a,
+  span {
+    @apply text-base md:text-lg font-normal;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply bg-primary px-4 py-2 rounded-full font-bold uppercase hover:bg-dark focus:bg-dark hover:text-neutral focus:text-neutral;
+  }
+  .btn-secondary {
+    @apply bg-secondary text-white px-4 py-2 rounded-full font-bold uppercase hover:bg-dark focus:bg-dark hover:text-neutral focus:text-neutral;
   }
 }
