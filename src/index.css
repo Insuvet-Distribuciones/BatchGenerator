@@ -76,6 +76,9 @@ svg:not(:root) {
   .btn {
     @apply bg-primary px-4 py-2 rounded-full font-bold uppercase hover:bg-dark focus:bg-dark hover:text-neutral focus:text-neutral;
   }
+  .btn-loading {
+    @apply  bg-neutral px-4 py-2 rounded-full font-bold uppercase border-gray-700 border-2 hover:bg-dark focus:bg-dark hover:text-neutral focus:text-neutral;
+  }
   .btn-secondary {
     @apply bg-secondary text-white px-4 py-2 rounded-full font-bold uppercase hover:bg-dark focus:bg-dark hover:text-neutral focus:text-neutral;
   }

@@ -6,8 +6,10 @@ import {
   StyleSheet,
   View,
 } from "@react-pdf/renderer";
+import PropTypes from "prop-types";
 
 import AUCOL from "../assets/AUCOL.png";
+import Batch from "../utils/class/batch.class";
 
 const styles = StyleSheet.create({
   page: {
@@ -48,7 +50,7 @@ const styles = StyleSheet.create({
     flex: "1 1 calc(50% - 10px)",
     paddingHorizontal: "4px",
     paddingVertical: "1px",
-    border: "1px solid black"
+    border: "1px solid black",
   },
   colContainer: {
     display: "flex",
@@ -62,6 +64,7 @@ const styles = StyleSheet.create({
 
 function PDF({ batch }) {
   const currentDate = new Date().toISOString().slice(0, 10).replace(/-/g, "");
+  
   const currentDateFormat = new Date()
     .toISOString()
     .slice(0, 10)
@@ -178,5 +181,9 @@ function PDF({ batch }) {
     </Document>
   );
 }
+
+PDF.propTypes = {
+  batch: PropTypes.instanceOf(Batch).isRequired,
+};
 
 export default PDF;
