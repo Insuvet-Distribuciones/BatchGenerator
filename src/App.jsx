@@ -4,6 +4,7 @@ import * as FileSaver from "file-saver";
 import Data from "./utils/Data/Data";
 import ProductSelector from "./components/ProductSelector";
 import PDF from "./components/PDF";
+import vaca from "./assets/vaca.jpeg"
 import "./index.css"
 
 function App() {
@@ -63,10 +64,8 @@ function App() {
 
       {/* Right Panel - PDF Preview (unchanged) */}
       <section>
-        <div className="relative w-full h-full">
-          <PDFViewer width="100%" height="100%" key={currentProduct.id}>
-            <PDF batch={currentProduct.data} />
-          </PDFViewer>
+        <div className="relative w-full h-full flex">
+          <img src={vaca} alt="VACA" />
         </div>
       </section>
     </main>
