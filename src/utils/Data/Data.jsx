@@ -1,14 +1,15 @@
 import Batch from "../class/batch.class";
+import sal05 from "../../assets/AUSAL_05_BULTO_40KILOS.png"
+import sal8 from "../../assets/AUSAL_8_BULTO_40KILOS.png"
+import sal12 from "../../assets/AUSAL_12_BULTO_40KILOS.png"
+import vitaLeche from "../../assets/AUCOL_VITA_LECHE_40KILOS.png"
+
 const currentDate = new Date().toISOString().slice(0, 10).replace(/-/g, "");
-import SAL05 from "../../assets/AUSAL_05_BULTO_40KILOS.png";
-import SAL8 from "../../assets/AUSAL_8_BULTO_40KILOS.png";
-import SAL12 from "../../assets/AUSAL_12%_BULTO_40KILOS.png";
-import VITALECHE from "../../assets/AUCOL_VITA_LECHE_40KILOS.png";
 
 const Data = [
   {
     name: "Ausal Ganadera 0.5%",
-    img: SAL05,
+    img: sal05,
     id: "05",
     filename: `AUSAL_GANADERA_05%_${currentDate}`,
     data: new Batch(
@@ -22,8 +23,8 @@ const Data = [
   },
   {
     name: "Ausal Ganadera 8%",
-    img: SAL8,
     id: "8",
+    img: sal8,
     filename: `AUSAL_GANADERA_8%_${currentDate}`,
     data: new Batch(
       "AUSAL GANADERA 8%",
@@ -36,8 +37,8 @@ const Data = [
   },
   {
     name: "Ausal Ganadera 12%",
-    img: SAL12,
     id: "12",
+    img: sal12,
     filename: `AUSAL_GANADERA_12%_${currentDate}`,
     data: new Batch(
       "AUSAL GANADERA 12%",
@@ -50,8 +51,8 @@ const Data = [
   },
   {
     name: "Augan Vita Leche",
-    img: VITALECHE,
     id: "VITA",
+    img: vitaLeche,
     filename: `AUGAN_VITA_LECHE_${currentDate}`,
     data: new Batch(
       "AUGAN VITA LECHE",
@@ -65,7 +66,7 @@ const Data = [
   {
     name: "Augan Eco Leche",
     id: "ECO",
-    img: VITALECHE,
+    img: vitaLeche,
     filename: `AUGAN_ECO_LECHE_${currentDate}`,
     data: new Batch(
       "AUGAN ECO LECHE",

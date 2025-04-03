@@ -34,7 +34,7 @@ function App() {
   return (
     <main className="grid grid-cols-2 h-[100vh] container mx-auto py-4 gap-5">
       {/* Left Panel - Controls */}
-      <section>
+      <section className=" flex flex-col">
         <div>
           <h2>Gestion de Lotes AUCOL</h2>
           <p className="py-2 text-sm">
@@ -65,7 +65,7 @@ function App() {
       {/* Right Panel - PDF Preview (unchanged) */}
       <section>
         <div className="relative w-full h-full flex">
-          <img src={vaca} alt="VACA" />
+          {/* <img src={vaca} alt="VACA" /> */}
         </div>
       </section>
     </main>
