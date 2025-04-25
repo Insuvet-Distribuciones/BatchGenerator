@@ -3,6 +3,7 @@ import sal05 from "../../assets/AUSAL_05_BULTO_40KILOS.png"
 import sal8 from "../../assets/AUSAL_8_BULTO_40KILOS.png"
 import sal12 from "../../assets/AUSAL_12_BULTO_40KILOS.png"
 import vitaLeche from "../../assets/AUCOL_VITA_LECHE_40KILOS.png"
+import ecoLeche from "../../assets/AUGAN_ECO_LECHE_EMPAQUE.png"
 
 const currentDate = new Date().toISOString().slice(0, 10).replace(/-/g, "");
 
@@ -66,7 +67,7 @@ const Data = [
   {
     name: "Augan Eco Leche",
     id: "ECO",
-    img: vitaLeche,
+    img: ecoLeche,
     filename: `AUGAN_ECO_LECHE_${currentDate}`,
     data: new Batch(
       "AUGAN ECO LECHE",

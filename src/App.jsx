@@ -4,8 +4,8 @@ import * as FileSaver from "file-saver";
 import Data from "./utils/Data/Data";
 import ProductSelector from "./components/ProductSelector";
 import PDF from "./components/PDF";
-import vaca from "./assets/vaca.jpeg"
-import "./index.css"
+import vaca from "./assets/vaca.jpeg";
+import "./index.css";
 
 function App() {
   const [currentProduct, setCurrentProduct] = useState(Data[0]);
@@ -16,12 +16,10 @@ function App() {
     try {
       setIsGenerating(true);
       setError(null);
-      
+
       // Generate and download PDF
-      const blob = await pdf(
-        <PDF batch={currentProduct.data} />
-      ).toBlob();
-      
+      const blob = await pdf(<PDF batch={currentProduct.data} />).toBlob();
+
       FileSaver.saveAs(blob, currentProduct.filename);
     } catch (err) {
       console.error("PDF generation failed:", err);
@@ -32,7 +30,7 @@ function App() {
   };
 
   return (
-    <main className="grid grid-cols-2 h-[100vh] container mx-auto py-4 gap-5">
+    <main className="h-[100vh] container mx-auto py-4 gap-5">
       {/* Left Panel - Controls */}
       <section className=" flex flex-col">
         <div>
@@ -55,19 +53,19 @@ function App() {
           <button
             onClick={handleDownload}
             disabled={isGenerating}
-            className={`btn ${error ? 'bg-red-500' : ''}`}
+            className={`btn ${error ? "bg-red-500" : ""}`}
           >
-            {isGenerating ? 'Generando PDF...' : error ? 'Error! Reintentar' : 'Descargar PDF'}
+            {isGenerating
+              ? "Generando PDF..."
+              : error
+              ? "Error! Reintentar"
+              : "Descargar PDF"}
           </button>
         </div>
       </section>
 
       {/* Right Panel - PDF Preview (unchanged) */}
-      <section>
-        <div className="relative w-full h-full flex">
-          {/* <img src={vaca} alt="VACA" /> */}
-        </div>
-      </section>
+      {/* <img src={vaca} alt="VACA" /> */}
     </main>
   );
 }
