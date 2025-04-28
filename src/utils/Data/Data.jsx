@@ -78,6 +78,20 @@ const Data = [
       12
     ),
   },
+  {
+    name: "Equine Boost",
+    id: "EQUI",
+    img: ecoLeche,
+    filename: `AUCOL_EQUINE_BOOST_${currentDate}`,
+    data: new Batch(
+      "EQUINE BOOST",
+      "23521SL",
+      "40kg",
+      `SUPLEMENTO ALIMENTICIO PARA VACAS DE LECHE Y DOBLE PROPÓSITO CON PRODUCCIONES DE 6 A 12 LITROS DIARIOS, UBICADAS EN ZONAS POR DEBAJO DE LOS 1200 METROS SOBRE EL NIVEL DEL MAR.`,
+      `Maíz y/o Sorgo, Harina de Arroz y/o Salvado de Maíz y/o Mogolla de Trigo, Gluten de Maíz y/o Torta de Soya y/o Destilado de Maíz, Torta de Palmiste y/o Semilla de Algodón, Cascarilla de Soya y/o Cascarilla de Café, Melaza y/o Glicerol, Carbonato de Calcio, Urea, Cloruro de Sodio, Fosfato Monodicálcico y/o Bicálcico y/o Tricálcico, Flor de Azufre, Óxido de Magnesio, Óxido de Zinc, Sulfato de Cobre, Carbonato de Cobalto y Yoduro de Potasio.`,
+      12
+    ),
+  },
 ];
 
 export default Data;
