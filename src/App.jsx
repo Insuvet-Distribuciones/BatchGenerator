@@ -12,6 +12,10 @@ function App() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [error, setError] = useState(null);
 
+  const currentDate = new Date().toISOString().slice(0, 10).replace(/-/g, "");
+console.log(currentDate); // Ejemplo: "20250428"
+
+
   const handleDownload = async () => {
     try {
       setIsGenerating(true);

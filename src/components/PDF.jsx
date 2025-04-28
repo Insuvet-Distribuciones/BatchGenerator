@@ -87,6 +87,7 @@ function PDF({ batch }) {
   // 3. Date functions (simplified)
   const currentDate = new Date();
   const currentDateFormat = currentDate.toLocaleDateString();
+
   
   const getFutureDate = (monthsAhead) => {
     const date = new Date();
@@ -129,7 +130,7 @@ function PDF({ batch }) {
           </Text>
         </View>
         <View style={{ borderWidth: 2, alignSelf: "flex-end" }}>
-          <Text>LOTE {currentDate.getTime()}</Text>
+          <Text>LOTE {currentDate.toISOString().slice(0, 10).replace(/-/g, "")}</Text>
         </View>
       </View>
 

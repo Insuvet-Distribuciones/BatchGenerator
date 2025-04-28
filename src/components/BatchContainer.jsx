@@ -1,8 +1,10 @@
+import { useEffect } from "react";
 import Batch from "../utils/class/batch.class";
 import PropTypes from "prop-types";
 
 function BatchContainer({ batch }) {
   const currentDate = new Date().toISOString().slice(0, 10).replace(/-/g, "");
+
   const currentDateFormat = new Date()
     .toISOString()
     .slice(0, 10)
@@ -18,9 +20,7 @@ function BatchContainer({ batch }) {
 
   return (
     <div className="font-poppins  flex flex-col gap-2 p-2  text-[8px] leading-tight pdf-cell">
-      <h2 className="text-center  text-[15px] font-bold">
-        {batch.itemName}
-      </h2>
+      <h2 className="text-center  text-[15px] font-bold">{batch.itemName}</h2>
       <div className="flex flex-col items-center">
         <p className="  text-[8px]">
           Peso Neto al empacar <span>{batch.totalWeight}</span>
@@ -30,9 +30,7 @@ function BatchContainer({ batch }) {
         </p>
       </div>
       <div className="text-center">
-        <h2 className="text-[15px]  font-bold">
-          INDICACIONES DEL PRODUCTO
-        </h2>
+        <h2 className="text-[15px]  font-bold">INDICACIONES DEL PRODUCTO</h2>
         <p className="break-words  text-[10px] whitespace-pre-wrap">
           {batch.indications}
         </p>
@@ -48,7 +46,7 @@ function BatchContainer({ batch }) {
         <p>F.PROD {currentDateFormat}</p>
       </div>
       <div className="text-center self-end  py-1  font-bold text-[15px]">
-        LOTE {currentDate}
+       {`${currentDate}`}
       </div>
       <div className="flex justify-between">
         <div>
@@ -58,9 +56,7 @@ function BatchContainer({ batch }) {
           <p className="  text-[7px]">
             Dirección: Calle 2 Sur # 5 A 53 Neiva, Huila
           </p>
-          <p className=" text-[7px]">
-            E-Mail: alimentosaucol@gmail.com
-          </p>
+          <p className=" text-[7px]">E-Mail: alimentosaucol@gmail.com</p>
         </div>
       </div>
     </div>

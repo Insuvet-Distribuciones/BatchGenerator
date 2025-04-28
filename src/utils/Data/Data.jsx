@@ -87,11 +87,13 @@ const Data = [
       "EQUINE BOOST",
       "23521SL",
       "40kg",
-      `SUPLEMENTO ALIMENTICIO PARA VACAS DE LECHE Y DOBLE PROPÓSITO CON PRODUCCIONES DE 6 A 12 LITROS DIARIOS, UBICADAS EN ZONAS POR DEBAJO DE LOS 1200 METROS SOBRE EL NIVEL DEL MAR.`,
-      `Maíz y/o Sorgo, Harina de Arroz y/o Salvado de Maíz y/o Mogolla de Trigo, Gluten de Maíz y/o Torta de Soya y/o Destilado de Maíz, Torta de Palmiste y/o Semilla de Algodón, Cascarilla de Soya y/o Cascarilla de Café, Melaza y/o Glicerol, Carbonato de Calcio, Urea, Cloruro de Sodio, Fosfato Monodicálcico y/o Bicálcico y/o Tricálcico, Flor de Azufre, Óxido de Magnesio, Óxido de Zinc, Sulfato de Cobre, Carbonato de Cobalto y Yoduro de Potasio.`,
+      `SAL MINERALIZADA CON PROBIOTICOS, PARA SER SUMINISTRADA A CABALLOS, MULAS Y ASNOS EN TODAS SUS ETAPAS DE DESARROLLO A PARTIR DE LOS TRES MESES DE EDAD.`,
+      `Cloruro De Sodio, Fosfato Monodicalcico Y/O Fosfato Bicalcico Y/O Fosfato Tricalcico, Carbonato De Calcio, Melaza Y/O Glicerol, Flor De Azufre, Óxido De Magnesio Y/O Sulfato De Magnesio Y/O Óxido De Zinc Y/O Sulfato De Zinc, Sulfato De Cobre Y/O Cobre Tribásico, Selenito De Sodio, Yoduro De Potasio Y/O Iodato De Calcio, Carbonato De Cobalto, Bacillus Subtilis Microencapsulado.`,
       12
     ),
   },
 ];
 
 export default Data;
+
+
